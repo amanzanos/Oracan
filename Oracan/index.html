@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rush Oracan | Moda inspirada en el Cierzo</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/images/logoOracanFondoAzul.jpeg"
+    />
+
+    <!-- ICONOS & FUENTES -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Marcellus&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="styles/index.css" />
+  </head>
+
+  <body>
+    <div id="navbar-container"></div>
+    <script>
+      fetch("shared/navigation/navigation.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("navbar-container").innerHTML = data;
+        });
+      fetch("shared/footer/footer.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("footer-container").innerHTML = data;
+        });
+    </script>
+    <header class="hero">
+      <video autoplay muted loop playsinline class="video-fondo">
+        <source src="assets/media/fondoInicial.mp4" type="video/mp4" />
+      </video>
+      <div class="overlay"></div>
+
+      <div class="contenido">
+        <div class="logo-contenedor">
+          <img
+            src="assets/images/logoOracanFondoAzul.jpeg"
+            alt="Logo Oracan"
+            class="logo"
+          />
+          <h1>Rush Oracan</h1>
+        </div>
+        <p>Moda con carácter inspirada en la fuerza del viento</p>
+      </div>
+
+      <button class="flecha-abajo" id="scrollDown">
+        <i class="fas fa-chevron-down"></i>
+      </button>
+    </header>
+
+    <main id="seccion-inicio">
+      <!-- INTRO -->
+      <section class="introduccion">
+        <h2 class="titulo-introduccion">
+          <i class="fas fa-wind"></i> Bienvenido a Rush Oracan
+        </h2>
+        <p class="texto-introduccion">
+          Nuestras prendas combinan la sobriedad del viento con pasión y el
+          carácter.
+        </p>
+      </section>
+      <!-- PROMOCIÓN -->
+      <section class="proximamente promo-bonus">
+        <div class="contenedor-futuro">
+          <div class="prenda-futura">
+            <span class="ribbon-regalo"
+              ><i class="fas fa-gift"></i> REGALO</span
+            >
+            <span class="flash-banner">🔥 Oferta Flash</span>
+            <span class="floating-free free-2">Hasta fin de existencias</span>
+
+            <img
+              src="assets/images/llavero.jpg"
+              alt="Llavero gratuito Oracan"
+            />
+            <h3>Por tu pedido</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCTOS DINÁMICOS -->
+      <section id="contenedorRopa" class="ropa-seccion"></section>
+
+      <!-- TESTIMONIOS -->
+      <section class="testimonios">
+        <h2><i class="fas fa-comment-dots"></i> Testimonios</h2>
+        <div class="contenedor-testimonios" id="listaTestimonios"></div>
+        <button id="abrirModal" class="boton">
+          <i class="fas fa-pen"></i> ¡Ahora tú!
+        </button>
+      </section>
+
+      <!-- MODAL TESTIMONIOS -->
+      <div id="modalTestimonio" class="modal">
+        <div class="modal-contenido">
+          <span id="cerrarModal" class="cerrar">&times;</span>
+          <h3><i class="fas fa-comment-medical"></i> Comparte tu testimonio</h3>
+          <form id="formTestimonio">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" type="text" required />
+
+            <label for="apellido">Apellido</label>
+            <input id="apellido" type="text" required />
+
+            <label for="testimonio">Tu testimonio</label>
+            <textarea id="testimonio" rows="4" required></textarea>
+
+            <button type="submit" class="btn-enviar">Enviar</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- CONTACTO -->
+      <section class="contacto">
+        <h2><i class="fas fa-envelope"></i> Contacto</h2>
+        <p>¿Tienes dudas? Escríbenos.</p>
+
+        <div class="contacto-link">
+          <a href="/Oracan/contact/contact.html" class="boton">
+            <i class="fas fa-paper-plane"></i> Ir al formulario de contacto
+          </a>
+        </div>
+      </section>
+    </main>
+    <!-- HISTORIA -->
+    <section class="historia">
+      <h2><i class="fas fa-mountain"></i> Nuestra Historia</h2>
+      <p>
+        Nacidos a los pies del Moncayo, Oracan representa la esencia del viento
+        que nunca se detiene.
+      </p>
+      <div class="historia-imagenes">
+        <img src="assets/images/historiaArchivo1.webp" alt="Diseño Oracan" />
+        <img
+          src="assets/images/historiaArchivo2.webp"
+          alt="Artesanía aragonesa"
+        />
+      </div>
+    </section>
+    <div id="footer-container"></div>
+
+    <!-- JS -->
+    <script src="js/index.js"></script>
+    <script>
+      document.getElementById("scrollDown").addEventListener("click", () => {
+        document
+          .getElementById("seccion-inicio")
+          .scrollIntoView({ behavior: "smooth" });
+      });
+
+      const secciones = document.querySelectorAll(
+        ".introduccion, .historia, .ropa-seccion, .proximamente, .testimonios, .contacto, .testimonio, .animar-scroll"
+      );
+      const observer = new IntersectionObserver(
+        (entradas) => {
+          entradas.forEach(
+            (entrada) =>
+              entrada.isIntersecting && entrada.target.classList.add("visible")
+          );
+        },
+        { threshold: 0.2 }
+      );
+
+      secciones.forEach((sec) => observer.observe(sec));
+    </script>
+  </body>
+</html>

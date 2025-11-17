@@ -1,0 +1,28 @@
+{
+  "testimonios": [
+    {
+      "nombre": "Marta",
+      "apellido": "Sanz",
+      "testimonio":
+        "Las prendas de Rush Oracan son impresionantes. Elegantes y resistentes"
+    },
+    {
+      "nombre": "Carlos",
+      "apellido": "Ruiz",
+      "testimonio":
+        "Diseños únicos con un toque que no encuentras en ningún otro sitio."
+    },
+    {
+      "nombre": "Lucía",
+      "apellido": "García",
+      "testimonio":
+        "Se nota la calidad en cada detalle. Una marca que representa fuerza y elegancia."
+    },
+    {
+      "nombre": "Lucía",
+      "apellido": "García",
+      "testimonio":
+        "Se nota la calidad en cada detalle. Una marca que representa fuerza y elegancia."
+       }
+  ]
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rush Oracan | Producto</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="/Oracan/assets/images/logoOracanFondoAzul.jpeg"
+    />
+
+    <link rel="stylesheet" href="/Oracan/product/product.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- Tipografías -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Marcellus&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="navbar-container"></div>
+    <script>
+      fetch("/Oracan/shared/navigation/navigation.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("navbar-container").innerHTML = data;
+        });
+      fetch("/Oracan/shared/footer/footer.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("footer-container").innerHTML = data;
+        });
+    </script>
+
+    <main class="producto-detalle">
+      <div class="producto-imagen">
+        <div class="zoom-container">
+          <img id="imagenPrincipal" alt="Producto" />
+          <div class="zoom-lente"></div>
+        </div>
+
+        <div class="image-dots">
+          <span class="dot active" data-index="0"></span>
+          <span class="dot" data-index="1"></span>
+        </div>
+      </div>
+
+      <div class="producto-info">
+        <h2 id="nombreProducto"></h2>
+        <div id="coloresProducto" class="colores"></div>
+
+        <p id="descripcionProducto"></p>
+
+        <div class="precio">
+          <i class="fas fa-euro-sign"></i>
+          <span id="precioProducto"></span>
+        </div>
+
+        <div class="especificaciones-wrapper">
+          <button class="btn-especificaciones" id="btnEspecificaciones">
+            Especificaciones
+            <i class="fa-solid fa-chevron-down flecha"></i>
+          </button>
+
+          <div class="especificaciones" id="especificaciones">
+            <h4>Especificaciones:</h4>
+
+            <p>
+              <span class="label"><i class="fas fa-user"></i> Fit:</span>
+              <span id="fitProducto"></span>
+            </p>
+            <p>
+              <span class="label"><i class="fas fa-leaf"></i> Material:</span>
+              <span id="materialProducto"></span>
+            </p>
+            <p>
+              <span class="label"><i class="fas fa-pen"></i> Diseño:</span>
+              <span id="disenoProducto"></span>
+            </p>
+          </div>
+        </div>
+
+        <div class="tallas">
+          <h4><i class="fas fa-tshirt"></i> Selecciona tu talla:</h4>
+          <div class="opciones-talla">
+            <button class="talla">S</button>
+            <button class="talla">M</button>
+            <button class="talla">L</button>
+            <button class="talla">XL</button>
+          </div>
+        </div>
+
+        <div class="guia-tallas">
+          <i class="fas fa-ruler"></i>
+          <a href="#" id="abrirGuia">Guía de tallas</a>
+        </div>
+
+        <button class="boton-comprar">
+          <i class="fas fa-shopping-cart"></i> Comprar
+        </button>
+      </div>
+    </main>
+
+    <div class="modal" id="modalGuia">
+      <div class="modal-contenido">
+        <span class="cerrar">&times;</span>
+        <h3>Guía de tallas Oracan</h3>
+
+        <table>
+          <tr>
+            <th>Talla</th>
+            <th>Pecho (cm)</th>
+            <th>Cintura (cm)</th>
+            <th>Cadera (cm)</th>
+          </tr>
+          <tr>
+            <td>S</td>
+            <td>88-94</td>
+            <td>76-82</td>
+            <td>90-96</td>
+          </tr>
+          <tr>
+            <td>M</td>
+            <td>95-101</td>
+            <td>83-89</td>
+            <td>97-103</td>
+          </tr>
+          <tr>
+            <td>L</td>
+            <td>102-108</td>
+            <td>90-96</td>
+            <td>104-110</td>
+          </tr>
+          <tr>
+            <td>XL</td>
+            <td>109-115</td>
+            <td>97-103</td>
+            <td>111-117</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script src="/Oracan/js/products.js"></script>
+    <script src="/Oracan/product/product.js"></script>
+  </body>
+</html>

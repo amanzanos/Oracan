@@ -1,0 +1,90 @@
+/* ========== FOOTER ========== */
+.footer {
+  background-color: #081216;
+  color: #b7dbff;
+  text-align: center;
+  padding: 3rem 1rem;
+  font-family: 'Marcellus', serif;
+}
+
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer__logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.6rem;
+}
+
+.footer__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.footer__socials {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.socials__link {
+  font-size: 28px;
+  color: #fff;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.socials__link--instagram {
+  color: transparent;
+  background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.socials__link--tiktok {
+  color: #25f4ee;
+  text-shadow: 2px 2px #fe2c55;
+}
+
+.socials__link:hover {
+  transform: scale(1.2);
+}
+
+.footer__copyright {
+  font-size: 0.875rem;
+  color: #b7dbff;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 640px) {
+  .footer__container {
+    gap: 1rem;
+  }
+
+  .footer__logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .footer__title {
+    font-size: 1rem;
+  }
+
+  .socials__link {
+    font-size: 24px;
+  }
+}

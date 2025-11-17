@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto</title>
+    <link rel="stylesheet" href="/Oracan/contact/contact.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/Oracan/assets/images/logoOracanFondoAzul.jpeg"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/yourkitid.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- CONTACTO -->
+    <section class="contacto">
+      <h2><i class="fas fa-envelope"></i> Contacto</h2>
+      <p>¿Tienes dudas? Escríbenos.</p>
+
+      <form
+        class="formulario"
+        action="https://formspree.io/f/mzzbypvy"
+        method="POST"
+      >
+        <div class="campo">
+          <input type="text" name="nombre" placeholder="Tu nombre" required />
+        </div>
+        <div class="campo">
+          <input
+            type="email"
+            name="email"
+            placeholder="Tu correo electrónico"
+            required
+          />
+        </div>
+        <div class="campo">
+          <textarea
+            name="mensaje"
+            placeholder="Tu mensaje"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="boton">
+          <i class="fas fa-paper-plane"></i> Enviar
+        </button>
+      </form>
+
+      <div class="volver">
+        <a href="/Oracan/index.html" class="boton"
+          ><i class="fas fa-arrow-left"></i> Volver al inicio</a
+        >
+      </div>
+    </section>
+  </body>
+</html>

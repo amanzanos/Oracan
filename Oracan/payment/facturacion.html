@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rush Oracan | Facturación</title>
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="/Oracan/assets/images/logoOracanFondoAzul.jpeg"
+    />
+    <link rel="stylesheet" href="/Oracan/payment/facturacion.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- Tipografías -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Marcellus&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <div id="navbar-container"></div>
+    <script>
+      fetch("/Oracan/shared/navigation/navigation.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("navbar-container").innerHTML = data;
+        });
+    </script>
+
+    <!-- Main -->
+    <main class="facturacion">
+      <header class="facturacion__header">
+        <h1 class="facturacion__titulo">
+          <i class="facturacion__icon fas fa-receipt"></i>
+          Datos de Facturación y Envío
+        </h1>
+      </header>
+
+      <!-- Resumen del pedido -->
+      <section class="facturacion__resumen resumen-pedido">
+        <h2 class="resumen-pedido__titulo">
+          <i class="resumen-pedido__icon fas fa-box"></i>
+          Resumen del pedido
+        </h2>
+        <div class="resumen-pedido__contenido" id="productoResumen"></div>
+      </section>
+
+      <!-- Formulario de envío -->
+      <form class="facturacion__form formulario" id="formFacturacion">
+        <h2 class="formulario__titulo">
+          <i class="formulario__icon fas fa-truck"></i>
+          Datos de envío
+        </h2>
+
+        <div class="formulario__grid">
+          <div class="formulario__campo">
+            <label for="nombre" class="formulario__label">Nombre completo</label>
+            <input type="text" id="nombre" class="formulario__input" required />
+          </div>
+
+          <div class="formulario__campo">
+            <label for="direccion" class="formulario__label">Dirección</label>
+            <input type="text" id="direccion" class="formulario__input" required />
+          </div>
+
+          <div class="formulario__campo">
+            <label for="ciudad" class="formulario__label">Ciudad</label>
+            <input type="text" id="ciudad" class="formulario__input" required />
+          </div>
+
+          <div class="formulario__campo">
+            <label for="cp" class="formulario__label">Código Postal</label>
+            <input type="text" id="cp" class="formulario__input" required pattern="[0-9]{5}" />
+          </div>
+
+          <div class="formulario__campo">
+            <label for="telefono" class="formulario__label">Teléfono</label>
+            <input type="tel" id="telefono" class="formulario__input" required pattern="[0-9]{9}" />
+          </div>
+        </div>
+
+        <div class="formulario__acciones">
+          <button type="submit" class="formulario__boton formulario__boton--confirmar">
+            <i class="formulario__icon fas fa-check"></i> Confirmar pedido
+          </button>
+        </div>
+      </form>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+    <script>
+      fetch("/Oracan/shared/footer/footer.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("footer-container").innerHTML = data;
+        });
+    </script>
+
+    <!-- Script externo -->
+    <script src="/Oracan/payment/facturacion.js"></script>
+  </body>
+</html>

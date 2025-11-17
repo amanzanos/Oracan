@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rush Oracan | Pago Bizum</title>
+  <link rel="stylesheet" href="/Oracan/payment/bizum/bizum.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <div id="navbar-container"></div>
+  <script>
+    fetch("/Oracan/shared/navigation/navigation.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("navbar-container").innerHTML = data);
+  </script>
+
+  <!-- Main Section -->
+  <main class="bizum">
+    <h1 class="bizum__titulo">
+      <i class="bizum__icon fas fa-mobile-alt"></i> Pago mediante Bizum
+    </h1>
+
+    <section class="bizum__instrucciones instrucciones">
+      <p class="instrucciones__texto">
+        Envía <strong class="instrucciones__importe" id="importePedido">X€</strong> al número Bizum 
+        <strong class="instrucciones__numero">600123456</strong> con el concepto: 
+        <em class="instrucciones__concepto">"Pedido Rush Oracan"</em>
+      </p>
+      <p class="instrucciones__texto">
+        Cuando hayas realizado el pago, pulsa el botón de confirmación para finalizar tu pedido.
+      </p>
+    </section>
+
+    <section class="bizum__confirmacion confirmacion">
+      <button id="confirmarPago" class="confirmacion__boton btn-confirmar">
+        <i class="confirmacion__icon fas fa-check"></i> He realizado el pago
+      </button>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+  <script>
+    fetch("/Oracan/shared/footer/footer.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("footer-container").innerHTML = data);
+  </script>
+
+  <script src="/Oracan/payment/bizum/bizum.js"></script>
+</body>
+</html>

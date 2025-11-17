@@ -1,0 +1,400 @@
+/* ==========================
+   GLOBAL
+========================== */
+body {
+  font-family: "Marcellus", serif;
+  margin: 0;
+  background: #f3f3f3;
+  color: #222;
+}
+
+/* ==========================
+   HEADER
+========================== */
+.encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background-color: #ffffffcc;
+  backdrop-filter: blur(6px);
+  border-bottom: 2px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.encabezado img.logo {
+  height: 50px;
+  border-radius: 10px;
+}
+
+.encabezado .volver {
+  position: absolute;
+  left: 1.5rem;
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.encabezado .volver:hover {
+  color: #0077b6;
+}
+
+/* ==========================
+   PRODUCTO LAYOUT
+========================== */
+.producto-detalle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  padding: 3rem 2rem;
+  background: linear-gradient(180deg, #ffffff, #e9f1f8);
+}
+
+/* Imagen Principal */
+.producto-imagen {
+  flex: 1 1 400px;
+  max-width: 500px;
+  max-height: 550px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.zoom-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.zoom-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: zoom-in;
+}
+
+.zoom-lente {
+  width: 130px;
+  height: 130px;
+  border: 2px solid #0c2545;
+  border-radius: 50%;
+  position: absolute;
+  display: none;
+  pointer-events: none;
+  background-size: 200%;
+  background-repeat: no-repeat;
+}
+
+/* Carrusel de puntos */
+.image-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  z-index: 20;
+}
+
+.image-dots .dot {
+  width: 0.83em;
+  height: 0.83em;
+  border-radius: 50%;
+  background: #bbb;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.image-dots .dot.active {
+  background: #0c2545;
+  transform: scale(1.3);
+}
+
+/* ==========================
+   INFO PRODUCTO
+========================== */
+.producto-info {
+  flex: 1 1 350px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.producto-info h2 {
+  font-family: "Cinzel Decorative", serif;
+  font-size: 1.7rem;
+  color: #0c2545;
+  margin: 0;
+}
+
+#descripcionProducto {
+  margin: 0.2em 0 0.5em;
+}
+
+.precio {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.precio i {
+  color: #0c2545;
+  margin-right: 6px;
+}
+
+/* Colores */
+#coloresProducto {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.color-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+
+.color-btn.selected {
+  transform: scale(1.15);
+  border: 2px solid #000;
+}
+
+.default-color {
+  background: #fff !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.default-color::after {
+  content: "";
+  position: absolute;
+  width: 140%;
+  height: 3px;
+  background: #000;
+  top: 50%;
+  left: -20%;
+  transform: rotate(-45deg);
+}
+
+/* ==========================
+   ESPECIFICACIONES
+========================== */
+.btn-especificaciones {
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  background: #fff;
+  border: 1px solid #e0e7ef;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: #0c2545;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-especificaciones:hover {
+  background: #f1f6ff;
+}
+.btn-especificaciones .flecha {
+  transition: 0.3s;
+  font-size: 1rem;
+}
+.btn-especificaciones.abierto .flecha {
+  transform: rotate(180deg);
+}
+
+.especificaciones {
+  background: #fff;
+  border: 1px solid #e0e7ef;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.4s;
+  box-shadow: 0 6px 14px rgba(12, 37, 69, 0.04);
+  margin-top: 6px;
+}
+.especificaciones.activo {
+  max-height: 300px;
+  opacity: 1;
+  padding: 0.6rem 0.8rem;
+}
+.especificaciones h4 {
+  font-size: 0.9em;
+}
+.especificaciones p {
+  display: flex;
+  gap: 8px;
+  font-size: 0.8em;
+  margin: 0;
+}
+.especificaciones .label {
+  font-weight: 700;
+  color: #0c2545;
+  min-width: 80px;
+  display: flex;
+  gap: 8px;
+}
+
+/* ==========================
+   TALLAS
+========================== */
+.opciones-talla {
+  display: flex;
+  gap: 0.5rem;
+}
+.talla {
+  padding: 0.6rem 1rem;
+  border: 1px solid #0c2545;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.talla:hover,
+.talla.activa {
+  background: #0c2545;
+  color: #fff;
+}
+.guia-tallas {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.guia-tallas a {
+  text-decoration: none;
+  color: #0c2545;
+  font-weight: bold;
+}
+.guia-tallas a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================
+   MODAL
+========================== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-contenido {
+  background: #fff;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  border-radius: 15px;
+  text-align: center;
+}
+.modal-contenido table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+.modal-contenido th,
+.modal-contenido td {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+}
+.cerrar {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  cursor: pointer;
+}
+
+/* ==========================
+   BOTÓN COMPRAR
+========================== */
+.boton-comprar {
+  margin-top: 1rem;
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  background: #0c2545;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.boton-comprar:hover {
+  background: #144b80;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #0c2545;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+@media (max-width: 600px) {
+  body {
+    font-size: 0.92rem;
+  }
+  .encabezado img.logo {
+    height: 40px;
+  }
+  .producto-imagen {
+    max-height: 350px;
+  }
+  .zoom-container {
+    height: 450px;
+  }
+  .zoom-container img {
+    object-fit: contain;
+  }
+  .imagenes-secundarias img {
+    width: 70px;
+    height: 90px;
+  }
+  .producto-info h2 {
+    font-size: 1.25rem;
+  }
+  .precio {
+    font-size: 1.05rem;
+  }
+  .talla {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.7rem;
+  }
+  .img-container {
+    height: 200px;
+  }
+}

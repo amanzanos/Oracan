@@ -1,0 +1,106 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Marcellus", serif;
+}
+
+body {
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* === BLOQUE PRINCIPAL === */
+main.bizum {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* === TITULO === */
+.bizum__titulo {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #1a1a1a;
+}
+
+.bizum__icon {
+  color: #4caf50;
+  margin-right: 10px;
+}
+
+/* === INSTRUCCIONES === */
+.bizum__instrucciones {
+  background-color: #f0f8ff;
+  border: 2px solid #4caf50;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 30px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.instrucciones__texto {
+  margin-bottom: 1rem;
+}
+
+.instrucciones__importe {
+  color: #1a73e8;
+}
+
+.instrucciones__numero {
+  font-weight: bold;
+}
+
+.instrucciones__concepto {
+  font-style: italic;
+  color: #555;
+}
+
+/* === CONFIRMACION === */
+.bizum__confirmacion {
+  text-align: center;
+}
+
+.confirmacion__boton {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.confirmacion__icon {
+  margin-right: 8px;
+}
+
+.confirmacion__boton:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 700px) {
+  main.bizum {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  .bizum__instrucciones {
+    font-size: 0.9rem;
+  }
+
+  .confirmacion__boton {
+    font-size: 0.9rem;
+    padding: 12px 20px;
+  }
+}

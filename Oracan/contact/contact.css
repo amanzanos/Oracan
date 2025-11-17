@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: radial-gradient(circle at top left, #0b1418 0%, #0e202a 100%);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.contacto {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4em 2em;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.contacto h2 {
+  font-size: 2.3em;
+  margin-bottom: 0.4em;
+  color: #4fc3f7;
+  letter-spacing: 1px;
+  animation: slideDown 1s ease;
+}
+
+.contacto p {
+  font-size: 1.1em;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 2.5em;
+  animation: slideDown 1.2s ease;
+}
+
+.formulario {
+  width: 100%;
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 3em 2.5em;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: slideUp 1.2s ease;
+}
+
+.formulario:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(79, 195, 247, 0.25);
+}
+
+.campo {
+  margin-bottom: 1.3em;
+}
+
+.formulario input,
+.formulario textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formulario input:focus,
+.formulario textarea:focus {
+  border-color: #4fc3f7;
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+  box-shadow: 0 0 10px rgba(79, 195, 247, 0.3);
+}
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  background: linear-gradient(135deg, #1f8fff, #007bff);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: none;
+  border-radius: 10px;
+  padding: 1em 2.2em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 15px rgba(31, 143, 255, 0.3);
+  margin: 0 auto;
+  display: block;
+}
+
+.boton i {
+  font-size: 1.1em;
+}
+
+.boton:hover {
+  background: linear-gradient(135deg, #42a5ff, #1f8fff);
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(79, 195, 247, 0.6);
+}
+
+.boton:active {
+  transform: translateY(0);
+  box-shadow: 0 0 10px rgba(66, 165, 255, 0.4);
+}
+
+.volver {
+  margin-top: 3em;
+  animation: fadeIn 2s ease;
+}
+
+.volver .boton {
+  background: transparent;
+  border: 2px solid #4fc3f7;
+  box-shadow: none;
+}
+
+.volver .boton:hover {
+  background: #4fc3f7;
+  color: #0b1418;
+  box-shadow: 0 0 20px rgba(79, 195, 247, 0.4);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 650px) {
+  .formulario {
+    padding: 2em 1.5em;
+  }
+
+  .contacto h2 {
+    font-size: 1.8em;
+  }
+
+  .boton {
+    width: 100%;
+  }
+}
